@@ -1,0 +1,26 @@
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md mt-10">
+    <h2 class="text-2xl font-bold mb-4 text-center">Signup</h2>
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+      <div class="mb-4">
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" name="username" class="mt-1 p-2 w-full border border-gray-300 rounded-md" [(ngModel)]="username" required />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" name="password" class="mt-1 p-2 w-full border border-gray-300 rounded-md" [(ngModel)]="password" required />
+      </div>
+      <div class="mb-4">
+        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" class="mt-1 p-2 w-full border border-gray-300 rounded-md" [(ngModel)]="confirmPassword" required />
+      </div>
+      <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700" [disabled]="password !== confirmPassword">
+        Sign Up
+      </button>
+      <p *ngIf="errorMessage" class="mt-2 text-red-500">{{ errorMessage }}</p>
+      <p *ngIf="successMessage" class="mt-2 text-green-500">{{ successMessage }}</p>
+    </form>
+    <p class="mt-4 text-center">
+      Already have an account? <a routerLink="/login" class="text-blue-600 hover:underline">Login</a>
+    </p>
+  </div>
+  
